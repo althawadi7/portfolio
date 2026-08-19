@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rashid Al Thawadi — Full-Stack Software Developer</title>
+<meta name="description" content="Rashid Al Thawadi — Full-Stack Software Developer in Bahrain. Web, mobile, and backend systems for SaaS, fintech, ecommerce, and government platforms.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0d0c11;
+    --bg-2: #131019;
+    --glass: rgba(255,255,255,0.045);
+    --glass-strong: rgba(255,255,255,0.075);
+    --border: rgba(255,255,255,0.09);
+    --border-strong: rgba(255,255,255,0.16);
+    --ink: #f6f3ee;
+    --muted: #a6a1b0;
+    --muted-dim: #6f6b7a;
+    --warm: #ff7a45;
+    --cool: #6e8cff;
+    --amber: #ffd36e;
+    --radius: 20px;
+    --maxw: 1160px;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+  }
+
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family:'Inter', system-ui, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  ::selection{ background: var(--warm); color: #17110a; }
+  a{ color:inherit; text-decoration:none; }
+
+  .display{ font-family:'Bricolage Grotesque', sans-serif; }
+
+  .wrap{ max-width: var(--maxw); margin:0 auto; padding: 0 28px; }
+
+  /* grain overlay */
+  .grain{
+    position: fixed; inset:0; z-index: 200; pointer-events:none;
+    opacity: 0.05; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* floating light orbs (key + rim light, evokes a render viewport) */
+  .orb{
+    position: fixed; border-radius: 50%; filter: blur(90px); pointer-events:none; z-index:0;
+    opacity: .5;
+  }
+  .orb-warm{ width: 480px; height: 480px; background: var(--warm); top: -160px; right: -120px; animation: drift1 22s ease-in-out infinite; }
+  .orb-cool{ width: 520px; height: 520px; background: var(--cool); bottom: 10%; left: -180px; opacity:.35; animation: drift2 26s ease-in-out infinite; }
+  .orb-amber{ width: 320px; height: 320px; background: var(--amber); top: 40%; right: 10%; opacity:.18; animation: drift1 30s ease-in-out infinite reverse; }
+  @keyframes drift1{ 0%,100%{ transform: translate(0,0); } 50%{ transform: translate(-40px, 50px); } }
+  @keyframes drift2{ 0%,100%{ transform: translate(0,0); } 50%{ transform: translate(40px, -40px); } }
+
+  main, header, footer{ position: relative; z-index: 1; }
+
+  /* ---------- NAV ---------- */
+  header{
+    position: sticky; top:0; z-index: 100;
+    background: rgba(13,12,17,0.6);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav{ display:flex; align-items:center; justify-content:space-between; height: 76px; }
+  .brand{ font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size: 19px; letter-spacing: -0.01em; }
+  nav.links{ display:flex; gap: 34px; }
+  nav.links a{ font-size: 14px; color: var(--muted); transition: color .25s ease; }
+  nav.links a:hover{ color: var(--ink); }
+  .nav-cta{
+    font-size: 13px; font-weight: 600; color: var(--bg);
+    background: var(--ink);
+    padding: 10px 20px; border-radius: 100px;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .nav-cta:hover{ transform: translateY(-2px); box-shadow: 0 10px 30px -8px rgba(255,255,255,0.25); }
+  @media (max-width: 760px){ nav.links{ display:none; } }
+
+  /* ---------- HERO ---------- */
+  .hero{ min-height: 88vh; display:flex; align-items:center; padding: 60px 0; perspective: 1400px; }
+  .hero-grid{ display:grid; grid-template-columns: 1.05fr 0.95fr; gap: 40px; align-items:center; width:100%; }
+  @media (max-width: 900px){ .hero-grid{ grid-template-columns:1fr; } }
+
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:10px;
+    font-size: 13px; color: var(--amber); font-weight: 600;
+    letter-spacing: 0.02em; margin-bottom: 26px;
+    background: var(--glass); border: 1px solid var(--border);
+    padding: 8px 16px; border-radius: 100px;
+  }
+  .eyebrow .dot{ width:6px; height:6px; border-radius:50%; background: var(--amber); box-shadow: 0 0 10px var(--amber); }
+
+  h1.hero-title{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-weight: 700;
+    font-size: clamp(42px, 6vw, 74px);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    margin-bottom: 22px;
+  }
+  h1.hero-title .grad{
+    background: linear-gradient(100deg, var(--warm), var(--amber) 60%, var(--cool));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  .hero-sub{ color: var(--muted); font-size: 18px; max-width: 480px; margin-bottom: 34px; }
+
+  .hero-actions{ display:flex; gap: 14px; flex-wrap:wrap; }
+  .btn{
+    font-size: 14.5px; font-weight: 600; padding: 15px 26px; border-radius: 100px;
+    display:inline-flex; align-items:center; gap:9px;
+    transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+  }
+  .btn-primary{ background: linear-gradient(100deg, var(--warm), #ff9a5c); color:#1a0f08; }
+  .btn-primary:hover{ transform: translateY(-3px); box-shadow: 0 16px 40px -10px rgba(255,122,69,0.5); }
+  .btn-ghost{ border: 1px solid var(--border-strong); color: var(--ink); }
+  .btn-ghost:hover{ border-color: rgba(255,255,255,0.4); transform: translateY(-3px); background: var(--glass); }
+
+  /* hero 3D layer stack */
+  .stack3d{ position: relative; height: 480px; transform-style: preserve-3d; }
+  .layer-card{
+    position:absolute; width: 76%; left:50%; border-radius: 18px;
+    background: var(--glass); border: 1px solid var(--border);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 30px 70px -30px rgba(0,0,0,0.7);
+    padding: 24px 60px 24px 26px;
+    transform-style: preserve-3d;
+    transition: transform .15s ease-out;
+  }
+  .layer-card .lbl{ font-size:11.5px; letter-spacing:0.08em; color: var(--muted-dim); font-weight:600; margin-bottom:10px; }
+  .layer-card .lname{ font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size: 21px; margin-bottom:8px; }
+  .layer-card .ldesc{ font-size: 13px; color: var(--muted); }
+  .layer-card .swatch{ position:absolute; top:22px; right:22px; width:34px; height:34px; border-radius:9px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+
+  .l1{ top: 0; transform: translate(-50%,0) translateZ(0px) rotateX(4deg) rotateY(-6deg); z-index:1; }
+  .l2{ top: 170px; transform: translate(-50%,0) translateZ(50px) rotateX(2deg) rotateY(-3deg); z-index:2; }
+  .l3{ top: 340px; transform: translate(-50%,0) translateZ(100px) rotateX(0deg) rotateY(0deg); z-index:3; }
+
+  @media (max-width: 900px){ .stack3d{ height: 400px; } .layer-card{ width: 92%; padding: 20px 54px 20px 22px; } .l1{top:0;} .l2{top:130px;} .l3{top:260px;} }
+
+  .scroll-cue{ position:absolute; bottom: 26px; left:50%; transform: translateX(-50%); font-size: 11.5px; color: var(--muted-dim); letter-spacing: 0.08em; display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .scroll-cue .line{ width:1px; height: 30px; background: linear-gradient(var(--muted-dim), transparent); animation: cue 1.8s ease-in-out infinite; }
+  @keyframes cue{ 0%{ transform: scaleY(0.3); opacity:0.4; } 50%{ transform: scaleY(1); opacity:1; } 100%{ transform: scaleY(0.3); opacity:0.4; } }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding: 110px 0; }
+  .sec-head{ margin-bottom: 56px; max-width: 640px; }
+  .sec-eyebrow{ font-size: 13px; color: var(--warm); font-weight:600; letter-spacing:0.06em; margin-bottom: 14px; }
+  .sec-title{ font-family:'Bricolage Grotesque',sans-serif; font-size: clamp(30px,4vw,44px); font-weight:700; letter-spacing:-0.02em; margin-bottom:14px; }
+  .sec-desc{ color: var(--muted); font-size: 16.5px; }
+
+  .reveal{ opacity:0; transform: translateY(28px) rotateX(4deg); transition: opacity .7s cubic-bezier(.2,.7,.3,1), transform .7s cubic-bezier(.2,.7,.3,1); transform-style: preserve-3d; }
+  .reveal.in{ opacity:1; transform: translateY(0) rotateX(0deg); }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{ display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items:start; }
+  @media (max-width: 860px){ .about-grid{ grid-template-columns:1fr; } }
+  .about-grid p{ color: var(--muted); font-size: 16.5px; margin-bottom: 18px; }
+  .about-grid strong{ color: var(--ink); font-weight:600; }
+
+  .stat-stack{ display:flex; flex-direction:column; gap:14px; }
+  .glass-card{
+    background: var(--glass); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 26px 28px; backdrop-filter: blur(16px);
+    transition: transform .35s ease, border-color .35s ease, background .35s ease;
+    transform-style: preserve-3d;
+  }
+  .glass-card:hover{ border-color: var(--border-strong); background: var(--glass-strong); }
+  .stat-num{ font-family:'Bricolage Grotesque',sans-serif; font-size: 40px; font-weight:700; background: linear-gradient(100deg, var(--warm), var(--amber)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .stat-label{ font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+  /* ---------- SKILLS ---------- */
+  .skill-groups{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  @media (max-width: 900px){ .skill-groups{ grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 600px){ .skill-groups{ grid-template-columns: 1fr; } }
+  .skill-card{ padding: 28px 26px; }
+  .skill-icon{
+    width: 42px; height:42px; border-radius: 12px; display:flex; align-items:center; justify-content:center;
+    margin-bottom: 20px; color: #1a1420;
+  }
+  .skill-card h3{ font-family:'Bricolage Grotesque',sans-serif; font-size: 18px; font-weight:700; margin-bottom: 16px; }
+  .pill-row{ display:flex; flex-wrap:wrap; gap: 10px; }
+  .pill{ font-size: 12.5px; color: var(--muted); border: 1px solid var(--border); padding: 7px 13px; border-radius: 100px; }
+
+  /* ---------- EXPERIENCE (timeline) ---------- */
+  .timeline{ position:relative; padding-left: 40px; }
+  .timeline::before{ content:""; position:absolute; left: 7px; top:6px; bottom: 6px; width: 1px; background: linear-gradient(var(--border-strong), transparent); }
+  .tl-item{ position: relative; padding-bottom: 56px; }
+  .tl-item:last-child{ padding-bottom:0; }
+  .tl-dot{
+    position:absolute; left: -40px; top: 4px; width: 15px; height:15px; border-radius:50%;
+    background: var(--bg); border: 2px solid var(--warm);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .tl-item.current .tl-dot{ border-color: var(--amber); box-shadow: 0 0 16px var(--amber); }
+  .tl-item.current .tl-dot::after{ content:""; width:6px; height:6px; border-radius:50%; background: var(--amber); }
+  .tl-date{ font-size: 13px; color: var(--warm); font-weight:600; margin-bottom: 8px; }
+  .tl-role{ font-family:'Bricolage Grotesque',sans-serif; font-size: 20px; font-weight:700; margin-bottom:6px; }
+  .tl-role span{ font-family:'Inter',sans-serif; font-weight:400; color: var(--muted); font-size: 15px; }
+  .tl-desc{ color: var(--muted); font-size: 15px; max-width: 560px; margin-top:2px; }
+
+  /* ---------- DOMAINS (3D tilt cards) ---------- */
+  .domains{ display:grid; grid-template-columns: repeat(3,1fr); gap: 22px; perspective: 1200px; }
+  @media (max-width: 900px){ .domains{ grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 560px){ .domains{ grid-template-columns: 1fr; } }
+  .tilt-card{
+    padding: 32px 28px; cursor: default;
+    transition: transform .12s ease-out, border-color .3s ease, background .3s ease;
+  }
+  .tilt-card:hover{ border-color: var(--border-strong); background: var(--glass-strong); }
+  .domain-icon{
+    width: 46px; height:46px; border-radius: 13px; display:flex; align-items:center; justify-content:center;
+    margin-bottom: 22px;
+  }
+  .domain-title{ font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size: 18px; margin-bottom: 10px; }
+  .domain-desc{ color: var(--muted); font-size: 14.5px; line-height:1.55; }
+
+  /* ---------- EDUCATION ---------- */
+  .edu-panel{ padding: 14px 4px; }
+  .edu-list{ display:grid; grid-template-columns: 1fr 1fr; gap: 0 48px; }
+  @media (max-width: 700px){ .edu-list{ grid-template-columns:1fr; } }
+  .edu-row{ display:flex; justify-content:space-between; align-items:baseline; gap: 20px; padding: 18px 4px; border-bottom: 1px solid var(--border); }
+  .edu-row .n{ font-size: 12px; color: var(--muted-dim); margin-right: 10px; }
+  .edu-row .t{ font-size: 15px; color: var(--ink); }
+  .edu-row .d{ font-size: 12.5px; color: var(--muted-dim); white-space:nowrap; }
+
+  /* ---------- CONTACT ---------- */
+  .contact-card{
+    padding: 60px 50px; text-align:center; position:relative; overflow:hidden;
+  }
+  .contact-card::before{
+    content:""; position:absolute; inset:0; z-index:-1;
+    background: radial-gradient(600px circle at 50% 0%, rgba(255,122,69,0.15), transparent 60%);
+  }
+  .contact-title{ font-family:'Bricolage Grotesque',sans-serif; font-size: clamp(28px,4.2vw,42px); font-weight:700; letter-spacing:-0.02em; max-width: 620px; margin: 0 auto 34px; }
+  .contact-methods{ display:flex; justify-content:center; gap: 16px; flex-wrap:wrap; margin-bottom: 34px; }
+  .method-pill{
+    display:flex; align-items:center; gap:10px;
+    border: 1px solid var(--border-strong); padding: 13px 22px; border-radius:100px;
+    font-size: 14.5px; transition: transform .2s ease, border-color .2s ease;
+  }
+  .method-pill:hover{ transform: translateY(-3px); border-color: var(--warm); }
+
+  footer{ padding: 34px 0 44px; text-align:center; color: var(--muted-dim); font-size: 12.5px; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="orb orb-warm"></div>
+<div class="orb orb-cool"></div>
+<div class="orb orb-amber"></div>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">Rashid Al Thawadi</div>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#work">Work</a>
+      <a href="#education">Education</a>
+    </nav>
+    <a class="nav-cta" href="#contact">Let's talk</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Available for new projects</div>
+        <h1 class="hero-title">Software, built with a <span class="grad">creative eye.</span></h1>
+        <p class="hero-sub">Full-stack developer in Bahrain, crafting web platforms, mobile apps, and backend systems for SaaS, fintech, ecommerce, and government products — shaped by years behind a camera and inside a 3D render.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Start a project →</a>
+          <a class="btn btn-ghost" href="#work">See the work</a>
+        </div>
+      </div>
+
+      <div class="stack3d" id="stack3d">
+        <div class="layer-card l1">
+          <div class="swatch" style="background: rgba(110,140,255,0.18); color:var(--cool);">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          </div>
+          <div class="lbl">CAMERA &amp; STORY</div>
+          <div class="lname">Where it started</div>
+          <div class="ldesc">Cinematography, editing &amp; broadcast — 2011</div>
+        </div>
+        <div class="layer-card l2">
+          <div class="swatch" style="background: rgba(255,211,110,0.18); color:var(--amber);">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 5-9 5-9-5 9-5z"/><path d="M3 12l9 5 9-5M3 17l9 5 9-5"/></svg>
+          </div>
+          <div class="lbl">3D &amp; VFX</div>
+          <div class="lname">Depth &amp; detail</div>
+          <div class="ldesc">Houdini, Zbrush, 3D animation — 2019</div>
+        </div>
+        <div class="layer-card l3">
+          <div class="swatch" style="background: rgba(255,122,69,0.18); color:var(--warm);">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <div class="lbl">CODE &amp; SYSTEMS</div>
+          <div class="lname">Where it lands</div>
+          <div class="ldesc">Full-stack development — 2023 – now</div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-cue"><span>SCROLL</span><span class="line"></span></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-eyebrow">ABOUT</div>
+        <h2 class="sec-title">Two crafts, one instinct for detail</h2>
+      </div>
+      <div class="about-grid">
+        <div class="reveal">
+          <p>I spent the first part of my career behind a camera and inside an edit bay — <strong>cinematography, VFX, and 3D animation</strong> for production houses and broadcast TV. It taught me to think in systems: every frame, layer, and shot has to hold together under a deadline.</p>
+          <p>In 2023 I retrained through a full-time <strong>Software Engineering Immersive</strong> and moved into full-stack development. Since then I've built backend systems, SaaS platforms, and mobile apps professionally — carrying that same eye for craft into <strong>Python, PHP, Node.js, Go, and Flutter</strong>.</p>
+          <p>Today I design REST APIs, real-time systems, and payment integrations for products that real people use — across <strong>20+ delivered projects</strong> in blockchain, ecommerce, government, and fintech.</p>
+        </div>
+        <div class="stat-stack reveal">
+          <div class="glass-card">
+            <div class="stat-num">20+</div>
+            <div class="stat-label">Projects shipped to production</div>
+          </div>
+          <div class="glass-card">
+            <div class="stat-num">5</div>
+            <div class="stat-label">Core languages — Python, PHP, JS, Go, Dart</div>
+          </div>
+          <div class="glass-card">
+            <div class="stat-num">4</div>
+            <div class="stat-label">Industries served, end to end</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-eyebrow">SKILLS</div>
+        <h2 class="sec-title">What I bring to a build</h2>
+        <p class="sec-desc">A full-stack toolkit — from interface to infrastructure.</p>
+      </div>
+      <div class="skill-groups">
+        <div class="glass-card skill-card reveal">
+          <div class="skill-icon" style="background: linear-gradient(135deg, var(--warm), #ff9a5c);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3>Web Development</h3>
+          <div class="pill-row">
+            <span class="pill">PHP / Laravel</span><span class="pill">Python</span><span class="pill">Node.js</span>
+            <span class="pill">JavaScript</span><span class="pill">React.js</span><span class="pill">HTML/CSS</span><span class="pill">Bootstrap</span>
+          </div>
+        </div>
+        <div class="glass-card skill-card reveal">
+          <div class="skill-icon" style="background: linear-gradient(135deg, var(--cool), #9db3ff);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg>
+          </div>
+          <h3>Backend &amp; Systems</h3>
+          <div class="pill-row">
+            <span class="pill">API design</span><span class="pill">Authentication</span><span class="pill">Payments</span>
+            <span class="pill">SaaS architecture</span><span class="pill">Background jobs</span><span class="pill">Automation</span>
+          </div>
+        </div>
+        <div class="glass-card skill-card reveal">
+          <div class="skill-icon" style="background: linear-gradient(135deg, var(--amber), #ffe6a8);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+          </div>
+          <h3>Mobile Development</h3>
+          <div class="pill-row">
+            <span class="pill">Flutter</span><span class="pill">Android</span><span class="pill">iOS</span><span class="pill">Firebase</span>
+          </div>
+        </div>
+        <div class="glass-card skill-card reveal">
+          <div class="skill-icon" style="background: linear-gradient(135deg, var(--warm), var(--amber));">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </div>
+          <h3>AI &amp; Automation</h3>
+          <div class="pill-row">
+            <span class="pill">AI-ready systems</span><span class="pill">API-based AI integration</span><span class="pill">Workflow automation</span><span class="pill">Data processing</span>
+          </div>
+        </div>
+        <div class="glass-card skill-card reveal">
+          <div class="skill-icon" style="background: linear-gradient(135deg, var(--cool), var(--warm));">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l4-8h10l4 8-4 8H7z"/></svg>
+          </div>
+          <h3>DevOps &amp; Security</h3>
+          <div class="pill-row">
+            <span class="pill">Linux</span><span class="pill">Nginx</span><span class="pill">Apache</span><span class="pill">Docker</span>
+            <span class="pill">Rate limiting</span><span class="pill">Server hardening</span>
+          </div>
+        </div>
+        <div class="glass-card skill-card reveal">
+          <div class="skill-icon" style="background: linear-gradient(135deg, var(--amber), var(--cool));">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg>
+          </div>
+          <h3>Database Management</h3>
+          <div class="pill-row">
+            <span class="pill">MySQL</span><span class="pill">PostgreSQL</span><span class="pill">Redis</span><span class="pill">Firebase</span>
+          </div>
+        </div>
+        <div class="glass-card skill-card reveal">
+          <div class="skill-icon" style="background: linear-gradient(135deg, var(--warm), var(--cool));">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          </div>
+          <h3>Creative Production</h3>
+          <div class="pill-row">
+            <span class="pill">Video Editing</span><span class="pill">Cameraman</span>
+            <span class="pill">3D Animation</span><span class="pill">3D Printing</span>
+          </div>
+        </div>
+        <div class="glass-card skill-card reveal">
+          <div class="skill-icon" style="background: linear-gradient(135deg, var(--amber), var(--warm));">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3>Blockchain &amp; Crypto</h3>
+          <div class="pill-row">
+            <span class="pill">Crypto Expert</span><span class="pill">Blockchain Systems</span><span class="pill">Bitcoin</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-eyebrow">EXPERIENCE</div>
+        <h2 class="sec-title">The path so far</h2>
+      </div>
+      <div class="timeline reveal">
+        <div class="tl-item current">
+          <div class="tl-dot"></div>
+          <div class="tl-date">2023 — 2025</div>
+          <div class="tl-role">Full-Stack Developer <span>· Code Crafter</span></div>
+          <div class="tl-desc">Building production web and mobile applications — SaaS platforms, APIs, and automation workflows for real users.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">2019</div>
+          <div class="tl-role">Trainer, Avid Offline Editor <span>· Avid Media Production</span></div>
+          <div class="tl-desc">Trained editors on Avid workflows and handled offline editing for broadcast projects.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">2018 — 2019</div>
+          <div class="tl-role">3D Animation Artist <span>· Film Zone Production</span></div>
+          <div class="tl-desc">Produced 3D animation and VFX work for client productions.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">2019</div>
+          <div class="tl-role">Trainer, Cameraman &amp; Editor <span>· Bahrain TV</span></div>
+          <div class="tl-desc">Trained crew on camera operation and edited broadcast segments.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-date">2011 — 2015</div>
+          <div class="tl-role">Cameraman &amp; Editor <span>· BeyondScreen Production</span></div>
+          <div class="tl-desc">Camera operation and post-production editing across commercial and broadcast projects.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOMAINS -->
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-eyebrow">WORK</div>
+        <h2 class="sec-title">Where the work has landed</h2>
+        <p class="sec-desc">20+ projects delivered across four industries, each with its own bar for trust, uptime, and accuracy.</p>
+      </div>
+      <div class="domains reveal">
+        <div class="glass-card tilt-card">
+          <div class="domain-icon" style="background: rgba(110,140,255,0.15); color: var(--cool);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          </div>
+          <div class="domain-title">Blockchain</div>
+          <div class="domain-desc">Distributed, trust-minimized systems built on a certified blockchain foundation.</div>
+        </div>
+        <div class="glass-card tilt-card">
+          <div class="domain-icon" style="background: rgba(255,122,69,0.15); color: var(--warm);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          </div>
+          <div class="domain-title">Ecommerce</div>
+          <div class="domain-desc">Storefronts and checkout systems with integrated payments and inventory logic.</div>
+        </div>
+        <div class="glass-card tilt-card">
+          <div class="domain-icon" style="background: rgba(255,211,110,0.15); color: var(--amber);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M14 9h1M14 13h1"/></svg>
+          </div>
+          <div class="domain-title">Government platforms</div>
+          <div class="domain-desc">Public-sector systems built for reliability, security, and clear auditability.</div>
+        </div>
+        <div class="glass-card tilt-card">
+          <div class="domain-icon" style="background: rgba(110,140,255,0.15); color: var(--cool);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+          </div>
+          <div class="domain-title">Fintech</div>
+          <div class="domain-desc">Payment integrations and financial workflows, hardened for accuracy and security.</div>
+        </div>
+        <div class="glass-card tilt-card">
+          <div class="domain-icon" style="background: rgba(255,122,69,0.15); color: var(--warm);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div class="domain-title">SaaS platforms</div>
+          <div class="domain-desc">Multi-tenant architecture, background jobs, and automation for subscription products.</div>
+        </div>
+        <div class="glass-card tilt-card">
+          <div class="domain-icon" style="background: rgba(255,211,110,0.15); color: var(--amber);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+          </div>
+          <div class="domain-title">Mobile apps</div>
+          <div class="domain-desc">Cross-platform Flutter apps for iOS and Android with Firebase integration.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-eyebrow">EDUCATION</div>
+        <h2 class="sec-title">Always in training</h2>
+      </div>
+      <div class="glass-card edu-panel reveal">
+        <div class="edu-list">
+          <div>
+            <div class="edu-row"><span class="t"><span class="n">01</span>Diploma in Photoshop</span><span class="d">Sep 15, 2016</span></div>
+            <div class="edu-row"><span class="t"><span class="n">02</span>Diploma in Photography</span><span class="d">Sep 16, 2016</span></div>
+            <div class="edu-row"><span class="t"><span class="n">03</span>Bachelor's Degree, Mass Communication &amp; PR</span><span class="d">Jul 9, 2020</span></div>
+            <div class="edu-row"><span class="t"><span class="n">04</span>Basics of Strategic Management</span><span class="d">Aug 25, 2020</span></div>
+            <div class="edu-row"><span class="t"><span class="n">05</span>Knowledge Test in Sales &amp; Marketing</span><span class="d">Sep 9, 2020</span></div>
+            <div class="edu-row"><span class="t"><span class="n">06</span>VFX: Complete Houdini Bootcamp</span><span class="d">Sep 17, 2020</span></div>
+            <div class="edu-row"><span class="t"><span class="n">07</span>Fundamentals of VFX</span><span class="d">Dec 19, 2020</span></div>
+            <div class="edu-row" style="border-bottom:none;"><span class="t"><span class="n">08</span>Learn Marvelous Designer</span><span class="d">Jan 25, 2021</span></div>
+          </div>
+          <div>
+            <div class="edu-row"><span class="t"><span class="n">09</span>Learning Zbrush from Scratch</span><span class="d">Oct 21, 2021</span></div>
+            <div class="edu-row"><span class="t"><span class="n">10</span>Certified Blockchain Expert™</span><span class="d">Jan 22, 2023</span></div>
+            <div class="edu-row"><span class="t"><span class="n">11</span>Software Engineering Immersive</span><span class="d">Sep 14, 2023</span></div>
+            <div class="edu-row"><span class="t"><span class="n">12</span>Google Ads Measurement Certification</span><span class="d">Sep 17, 2023</span></div>
+            <div class="edu-row"><span class="t"><span class="n">13</span>Bitcoin Training Certificate</span><span class="d">Jan 2, 2025</span></div>
+            <div class="edu-row" style="border-bottom:none;"><span class="t"><span class="n">14</span>1 Million AI Prompters — Dubai Future Foundation</span><span class="d">Aug 19, 2026</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="glass-card contact-card reveal">
+        <h2 class="contact-title">Have a project in mind? Let's build something great together.</h2>
+        <div class="contact-methods">
+          <a class="method-pill" href="mailto:althawadir7@gmail.com">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+            althawadir7@gmail.com
+          </a>
+          <a class="method-pill" href="tel:+97334454434">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.65 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.27a2 2 0 0 1 2.11-.45c.86.31 1.75.53 2.65.65A2 2 0 0 1 22 16.92z"/></svg>
+            +973 3445 4434
+          </a>
+          <span class="method-pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Manama, Bahrain
+          </span>
+        </div>
+        <a class="btn btn-primary" href="mailto:althawadir7@gmail.com">Send an email →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Rashid Al Thawadi. Built with craft, from every angle.</div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el=> io.observe(el));
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // 3D hero layer stack — follows cursor
+  const stack = document.getElementById('stack3d');
+  if(stack && !reduceMotion){
+    const cards = stack.querySelectorAll('.layer-card');
+    const baseTransforms = ['translate(-50%,0) translateZ(0px) rotateX(4deg) rotateY(-6deg)',
+                             'translate(-50%,0) translateZ(50px) rotateX(2deg) rotateY(-3deg)',
+                             'translate(-50%,0) translateZ(100px) rotateX(0deg) rotateY(0deg)'];
+    window.addEventListener('mousemove', (e)=>{
+      const rect = stack.getBoundingClientRect();
+      const cx = rect.left + rect.width/2;
+      const cy = rect.top + rect.height/2;
+      const dx = (e.clientX - cx) / rect.width;
+      const dy = (e.clientY - cy) / rect.height;
+      cards.forEach((card, i)=>{
+        const depth = (i+1) * 6;
+        card.style.transform = baseTransforms[i] + ` rotateY(${dx*depth}deg) rotateX(${-dy*depth}deg)`;
+      });
+    });
+  }
+
+  // 3D tilt for domain cards
+  if(!reduceMotion){
+    document.querySelectorAll('.tilt-card').forEach(card=>{
+      card.addEventListener('mousemove', (e)=>{
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left)/r.width - 0.5;
+        const y = (e.clientY - r.top)/r.height - 0.5;
+        card.style.transform = `perspective(700px) rotateY(${x*10}deg) rotateX(${-y*10}deg) translateY(-4px)`;
+      });
+      card.addEventListener('mouseleave', ()=>{
+        card.style.transform = 'perspective(700px) rotateY(0) rotateX(0) translateY(0)';
+      });
+    });
+  }
+</script>
+
+</body>
+</html>
