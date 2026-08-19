@@ -161,7 +161,7 @@
   @media (max-width: 560px){ .domains{ grid-template-columns: 1fr; } }
   .tilt-card{
     padding: 32px 28px; cursor: default;
-    transition: transform .12s ease-out, border-color .3s ease, background .3s ease;
+    transition: border-color .3s ease, background .3s ease;
   }
   .tilt-card:hover{ border-color: var(--border-strong); background: var(--glass-strong); }
   .domain-title{ font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size: 18px; margin-bottom: 10px; }
@@ -170,6 +170,13 @@
   .cert-card{
     padding: 0; overflow: hidden; cursor: pointer;
     display: flex; flex-direction: column;
+    transform: translateY(0);
+    box-shadow: 0 0 0 transparent;
+    transition: transform .45s cubic-bezier(.22,.7,.25,1), border-color .3s ease, background .3s ease, box-shadow .45s cubic-bezier(.22,.7,.25,1);
+  }
+  .cert-card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 24px 50px -22px rgba(0,0,0,0.7);
   }
   .cert-preview{
     aspect-ratio: 16 / 11;
@@ -181,9 +188,10 @@
     width: 100%; height: 100%;
     object-fit: cover; object-position: top center;
     display: block;
-    transition: transform .45s ease;
+    transform: scale(1);
+    transition: transform .55s cubic-bezier(.22,.7,.25,1);
   }
-  .cert-card:hover .cert-preview img{ transform: scale(1.045); }
+  .cert-card:hover .cert-preview img{ transform: scale(1.04); }
   .cert-body{ padding: 20px 22px 22px; }
   .cert-body .domain-title{ margin-bottom: 6px; }
   .cert-body .domain-desc{ margin-bottom: 14px; }
@@ -516,22 +524,6 @@
     });
   }, { threshold: 0.12 });
   revealEls.forEach(el=> io.observe(el));
-
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if(!reduceMotion){
-    document.querySelectorAll('.tilt-card').forEach(card=>{
-      card.addEventListener('mousemove', (e)=>{
-        const r = card.getBoundingClientRect();
-        const x = (e.clientX - r.left)/r.width - 0.5;
-        const y = (e.clientY - r.top)/r.height - 0.5;
-        card.style.transform = `perspective(700px) rotateY(${x*10}deg) rotateX(${-y*10}deg) translateY(-4px)`;
-      });
-      card.addEventListener('mouseleave', ()=>{
-        card.style.transform = 'perspective(700px) rotateY(0) rotateX(0) translateY(0)';
-      });
-    });
-  }
 
   const lightbox = document.getElementById('lightbox');
   const lbImg = document.getElementById('lightbox-img');
