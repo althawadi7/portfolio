@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certificates — Rashid Al Thawadi</title>
+<meta name="description" content="Certificates and credentials earned by Rashid Al Thawadi — software engineering, blockchain, VFX, media, and professional training.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0d0c11;
+    --bg-2: #131019;
+    --glass: rgba(255,255,255,0.045);
+    --glass-strong: rgba(255,255,255,0.075);
+    --border: rgba(255,255,255,0.09);
+    --border-strong: rgba(255,255,255,0.16);
+    --ink: #f6f3ee;
+    --muted: #a6a1b0;
+    --muted-dim: #6f6b7a;
+    --warm: #ff7a45;
+    --cool: #6e8cff;
+    --amber: #ffd36e;
+    --radius: 20px;
+    --maxw: 1160px;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+  }
+
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family:'Inter', system-ui, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  ::selection{ background: var(--warm); color: #17110a; }
+  a{ color:inherit; text-decoration:none; }
+  button{ font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+
+  .display{ font-family:'Bricolage Grotesque', sans-serif; }
+
+  .wrap{ max-width: var(--maxw); margin:0 auto; padding: 0 28px; }
+
+  .grain{
+    position: fixed; inset:0; z-index: 200; pointer-events:none;
+    opacity: 0.05; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .orb{
+    position: fixed; border-radius: 50%; filter: blur(90px); pointer-events:none; z-index:0;
+    opacity: .5;
+  }
+  .orb-warm{ width: 480px; height: 480px; background: var(--warm); top: -160px; right: -120px; animation: drift1 22s ease-in-out infinite; }
+  .orb-cool{ width: 520px; height: 520px; background: var(--cool); bottom: 10%; left: -180px; opacity:.35; animation: drift2 26s ease-in-out infinite; }
+  .orb-amber{ width: 320px; height: 320px; background: var(--amber); top: 40%; right: 10%; opacity:.18; animation: drift1 30s ease-in-out infinite reverse; }
+  @keyframes drift1{ 0%,100%{ transform: translate(0,0); } 50%{ transform: translate(-40px, 50px); } }
+  @keyframes drift2{ 0%,100%{ transform: translate(0,0); } 50%{ transform: translate(40px, -40px); } }
+
+  main, header, footer{ position: relative; z-index: 1; }
+
+  header{
+    position: sticky; top:0; z-index: 100;
+    background: rgba(13,12,17,0.6);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav{ display:flex; align-items:center; justify-content:space-between; height: 76px; }
+  .brand{ font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size: 19px; letter-spacing: -0.01em; }
+  nav.links{ display:flex; gap: 34px; }
+  nav.links a{ font-size: 14px; color: var(--muted); transition: color .25s ease; }
+  nav.links a:hover, nav.links a.is-active{ color: var(--ink); }
+  .nav-cta{
+    font-size: 13px; font-weight: 600; color: var(--bg);
+    background: var(--ink);
+    padding: 10px 20px; border-radius: 100px;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .nav-cta:hover{ transform: translateY(-2px); box-shadow: 0 10px 30px -8px rgba(255,255,255,0.25); }
+  @media (max-width: 760px){ nav.links{ display:none; } }
+
+  .hero{ min-height: 88vh; display:flex; align-items:center; padding: 60px 0; perspective: 1400px; }
+  .page-hero{ min-height: auto; padding: 72px 0 20px; }
+
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:10px;
+    font-size: 13px; color: var(--amber); font-weight: 600;
+    letter-spacing: 0.02em; margin-bottom: 26px;
+    background: var(--glass); border: 1px solid var(--border);
+    padding: 8px 16px; border-radius: 100px;
+  }
+  .eyebrow .dot{ width:6px; height:6px; border-radius:50%; background: var(--amber); box-shadow: 0 0 10px var(--amber); }
+
+  h1.hero-title{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-weight: 700;
+    font-size: clamp(42px, 6vw, 74px);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    margin-bottom: 22px;
+  }
+  h1.hero-title .grad{
+    background: linear-gradient(100deg, var(--warm), var(--amber) 60%, var(--cool));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  .hero-sub{ color: var(--muted); font-size: 18px; max-width: 520px; margin-bottom: 34px; }
+
+  .hero-actions{ display:flex; gap: 14px; flex-wrap:wrap; }
+  .btn{
+    font-size: 14.5px; font-weight: 600; padding: 15px 26px; border-radius: 100px;
+    display:inline-flex; align-items:center; gap:9px;
+    transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+  }
+  .btn-primary{ background: linear-gradient(100deg, var(--warm), #ff9a5c); color:#1a0f08; }
+  .btn-primary:hover{ transform: translateY(-3px); box-shadow: 0 16px 40px -10px rgba(255,122,69,0.5); }
+  .btn-ghost{ border: 1px solid var(--border-strong); color: var(--ink); }
+  .btn-ghost:hover{ border-color: rgba(255,255,255,0.4); transform: translateY(-3px); background: var(--glass); }
+
+  section{ padding: 110px 0; }
+  .certs-section{ padding-top: 36px; padding-bottom: 80px; }
+  .sec-head{ margin-bottom: 56px; max-width: 640px; }
+  .sec-eyebrow{ font-size: 13px; color: var(--warm); font-weight:600; letter-spacing:0.06em; margin-bottom: 14px; }
+  .sec-title{ font-family:'Bricolage Grotesque',sans-serif; font-size: clamp(30px,4vw,44px); font-weight:700; letter-spacing:-0.02em; margin-bottom:14px; }
+  .sec-desc{ color: var(--muted); font-size: 16.5px; }
+
+  .reveal{ opacity:0; transform: translateY(28px) rotateX(4deg); transition: opacity .7s cubic-bezier(.2,.7,.3,1), transform .7s cubic-bezier(.2,.7,.3,1); transform-style: preserve-3d; }
+  .reveal.in{ opacity:1; transform: translateY(0) rotateX(0deg); }
+
+  .glass-card{
+    background: var(--glass); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 26px 28px; backdrop-filter: blur(16px);
+    transition: transform .35s ease, border-color .35s ease, background .35s ease;
+    transform-style: preserve-3d;
+  }
+  .glass-card:hover{ border-color: var(--border-strong); background: var(--glass-strong); }
+
+  .stat-stack{ display:flex; gap:14px; }
+  .stat-stack .glass-card{ flex:1; }
+  .stat-num{ font-family:'Bricolage Grotesque',sans-serif; font-size: 40px; font-weight:700; background: linear-gradient(100deg, var(--warm), var(--amber)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .stat-label{ font-size: 13px; color: var(--muted); margin-top: 4px; }
+  @media (max-width: 700px){ .stat-stack{ flex-direction:column; } }
+
+  .pill-row{ display:flex; flex-wrap:wrap; gap: 10px; }
+  .pill{ font-size: 12.5px; color: var(--muted); border: 1px solid var(--border); padding: 7px 13px; border-radius: 100px; }
+
+  .tl-date{ font-size: 13px; color: var(--warm); font-weight:600; margin-bottom: 8px; }
+
+  .domains{ display:grid; grid-template-columns: repeat(3,1fr); gap: 22px; perspective: 1200px; }
+  @media (max-width: 900px){ .domains{ grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 560px){ .domains{ grid-template-columns: 1fr; } }
+  .tilt-card{
+    padding: 32px 28px; cursor: default;
+    transition: transform .12s ease-out, border-color .3s ease, background .3s ease;
+  }
+  .tilt-card:hover{ border-color: var(--border-strong); background: var(--glass-strong); }
+  .domain-title{ font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size: 18px; margin-bottom: 10px; }
+  .domain-desc{ color: var(--muted); font-size: 14.5px; line-height:1.55; }
+
+  .cert-card{
+    padding: 0; overflow: hidden; cursor: pointer;
+    display: flex; flex-direction: column;
+  }
+  .cert-preview{
+    aspect-ratio: 16 / 11;
+    background: #16131c;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+  .cert-preview img{
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: top center;
+    display: block;
+    transition: transform .45s ease;
+  }
+  .cert-card:hover .cert-preview img{ transform: scale(1.045); }
+  .cert-body{ padding: 20px 22px 22px; }
+  .cert-body .domain-title{ margin-bottom: 6px; }
+  .cert-body .domain-desc{ margin-bottom: 14px; }
+
+  .contact-card{
+    padding: 60px 50px; text-align:center; position:relative; overflow:hidden;
+  }
+  .contact-card::before{
+    content:""; position:absolute; inset:0; z-index:-1;
+    background: radial-gradient(600px circle at 50% 0%, rgba(255,122,69,0.15), transparent 60%);
+  }
+  .contact-title{ font-family:'Bricolage Grotesque',sans-serif; font-size: clamp(28px,4.2vw,42px); font-weight:700; letter-spacing:-0.02em; max-width: 620px; margin: 0 auto 34px; }
+  .contact-methods{ display:flex; justify-content:center; gap: 16px; flex-wrap:wrap; margin-bottom: 34px; }
+  .method-pill{
+    display:flex; align-items:center; gap:10px;
+    border: 1px solid var(--border-strong); padding: 13px 22px; border-radius:100px;
+    font-size: 14.5px; transition: transform .2s ease, border-color .2s ease;
+  }
+  .method-pill:hover{ transform: translateY(-3px); border-color: var(--warm); }
+
+  footer{ padding: 34px 0 44px; text-align:center; color: var(--muted-dim); font-size: 12.5px; border-top: 1px solid var(--border); }
+
+  .lightbox{
+    position: fixed; inset: 0; z-index: 400;
+    display: none; align-items: center; justify-content: center;
+    background: rgba(8,7,12,0.82); backdrop-filter: blur(18px);
+    padding: 28px;
+  }
+  .lightbox.open{ display: flex; }
+  .lightbox-card{
+    width: min(920px, 100%);
+    max-height: 92vh;
+    overflow: auto;
+    padding: 16px;
+  }
+  .lightbox-card img{
+    width: 100%;
+    max-height: 68vh;
+    object-fit: contain;
+    border-radius: 14px;
+    background: #fff;
+    display: block;
+  }
+  .lightbox-bar{
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; flex-wrap: wrap; padding: 18px 8px 8px;
+  }
+  .lightbox-bar .domain-title{ margin-bottom: 4px; }
+  .lightbox-bar .domain-desc{ margin-bottom: 0; }
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="orb orb-warm"></div>
+<div class="orb orb-cool"></div>
+<div class="orb orb-amber"></div>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html">Rashid Al Thawadi</a>
+    <nav class="links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#education">Education</a>
+      <a class="is-active" href="certificates.html">Certificates</a>
+    </nav>
+    <a class="nav-cta" href="index.html#contact">Let's talk</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero page-hero">
+    <div class="wrap">
+      <div class="eyebrow"><span class="dot"></span>17 credentials on file</div>
+      <h1 class="hero-title">Certificates, <span class="grad">in one place.</span></h1>
+      <p class="hero-sub">Every diploma, course, and award in the archive — from Shaw Academy through General Assembly and Dubai Future Foundation.</p>
+      <div class="stat-stack reveal">
+        <div class="glass-card">
+          <div class="stat-num">17</div>
+          <div class="stat-label">Certificates listed</div>
+        </div>
+        <div class="glass-card">
+          <div class="stat-num">2016–26</div>
+          <div class="stat-label">Years of training on record</div>
+        </div>
+        <div class="glass-card">
+          <div class="stat-num">4</div>
+          <div class="stat-label">Tracks — software, 3D, media, business</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="certs-section" id="certificates">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-eyebrow">ARCHIVE</div>
+        <h2 class="sec-title">All certificates</h2>
+        <p class="sec-desc">Click a card to preview it, or open the original PDF.</p>
+      </div>
+
+      <div class="domains reveal">
+
+        <article class="glass-card tilt-card cert-card" data-pdf="Media/Certificates/1%20Million%20AI%20Prompters%20%E2%80%94%20Dubai%20Future%20Foundation.pdf" data-img="Media/Certificates/previews/ai-prompters.jpg" data-title="1 Million AI Prompters — Dubai Future Foundation" data-meta="Dubai Future Foundation · Aug 19, 2026">
+          <div class="cert-preview"><img src="Media/Certificates/previews/ai-prompters.jpg" alt="1 Million AI Prompters — Dubai Future Foundation"></div>
+          <div class="cert-body">
+            <div class="tl-date">Aug 19, 2026</div>
+            <div class="domain-title">1 Million AI Prompters — Dubai Future Foundation</div>
+            <div class="domain-desc">Dubai Future Foundation — Dubai Centre for Artificial Intelligence.</div>
+            <div class="pill-row"><span class="pill">Open PDF →</span></div>
+          </div>
+        </article>
+
+        <article class="glass-card tilt-card cert-card" data-pdf="Media/Certificates/13Bitcoin%20Training%20Certificate.pdf" data-img="Media/Certificates/previews/bitcoin.jpg" data-title="Bitcoin Training Certificate" data-meta="Raed Mind · Jan 2, 2025">
+          <div class="cert-preview"><img src="Media/Certificates/previews/bitcoin.jpg" alt="Bitcoin Training Certificate"></div>
+          <div class="cert-body">
+            <div class="tl-date">Jan 2, 2025</div>
+            <div class="domain-title">Bitcoin Training Certificate</div>
+            <div class="domain-desc">Raed Mind — one-week Bitcoin training program.</div>
+            <div class="pill-row"><span class="pill">Open PDF →</span></div>
+          </div>
+        </article>
+
+        <article class="glass-card tilt-card cert-card" data-pdf="Media/Certificates/Google%20Ads%20Measurement%20certification.pdf" data-img="Media/Certificates/previews/google-ads.jpg" data-title="Google Ads Measurement Certification" data-meta="Google · Sep 17, 2023">
+          <div class="cert-preview"><img src="Media/Certificates/previews/google-ads.jpg" alt="Google Ads Measurement Certification"></div>
+          <div class="cert-body">
+            <div class="tl-date">Sep 17, 2023</div>
+            <div class="domain-title">Google Ads Measurement Certification</div>
+            <div class="domain-desc">Google Ads professional certification.</div>
+            <div class="pill-row"><span class="pill">Open PDF →</span></div>
+          </div>
+        </article>
+
+        <article class="glass-card tilt-card cert-card" data-pdf="Media/Certificates/11Software%20Engineering%20Immersive.pdf" data-img="Media/Certificates/previews/software-engineering.jpg" data-title="Software Engineering Immersive" data-meta="General Assembly · Sep 14, 2023">
+          <div class="cert-preview"><img src="Media/Certificates/previews/software-engineering.jpg" alt="Software Engineering Immersive"></div>
+          <div class="cert-body">
+            <div class="tl-date">Sep 14, 2023</div>
+            <div class="domain-title">Software Engineering Immersive</div>
+            <div class="domain-desc">General Assembly — 480 hours / 12 weeks, with Tamkeen.</div>
+            <div class="pill-row"><span class="pill">Open PDF →</span></div>
+          </div>
+        </article>
+
+        <article class="glass-card tilt-card cert-card" data-pdf="Media/Certificates/Certified%20Blockchain%20Expert%E2%84%A2.pdf" data-img="Media/Certificates/previews/blockchain.jpg" data-title="Certified Blockchain Expert™" data-meta="Blockchain Council · Jan 22, 2023">
+          <div class="cert-preview"><img src="Media/Certificates/previews/blockchain.jpg" alt="Certified Blockchain Expert™"></div>
+          <div class="cert-body">
+            <div class="tl-date">Jan 22, 2023</div>
+            <div class="domain-title">Certified Blockchain Expert™</div>
+            <div class="domain-desc">Blockchain Council — certification through examination &amp; training.</div>
+            <div class="pill-row"><span class="pill">Open PDF →</span></div>
+          </div>
+        </article>
+
+        <article class="glass-card tilt-card cert-card" data-pdf="Media/Certificates/Learning%20Zbrush%20from%20Scratch%20%28UDEMY%29.pdf" data-img="Media/Certificates/previews/zbrush.jpg" data-title="Learning Zbrush from Scratch" data-meta="Udemy · Oct 21, 2021">
+          <div class="cert-preview"><img src="Media/Certificates/previews/zbrush.jpg" alt="Learning Zbrush from Scratch"></div>
+          <div class="cert-body">
+            <div class="tl-date">Oct 21, 2021</div>
+            <div class="domain-title">Learning Zbrush from Scratch</div>
+            <div class="domain-desc">Udemy — 8 hours. Instructor James Leiske.</div>
+            <div class="pill-row"><span class="pill">Open PDF →</span></div>
+          </div>
+        </article>
+
+        <article class="glass-card tilt-card cert-card" data-pdf="Media/Certificates/completed%203.5%20total%20hours%20of%20Learn%20%28UDEMY%29.pdf" data-img="Media/Certificates/previews/marvelous-designer.jpg" data-title="Learn Marvelous Designer" data-meta="Udemy · Jan 25, 2021">
+          <div class="cert-preview"><img src="Media/Certificates/previews/marvelous-designer.jpg" alt="Learn Marvelous Designer"></div>
+          <div class="cert-body">
+            <div class="tl-date">Jan 25, 2021</div>
+            <div class="domain-title">Learn Marvelous Designer</div>
+            <div class="domain-desc">Udemy — 3.5 hours. Instructor CJ Designer Source.</div>
+            <div class="pill-row"><span class="pill">Open PDF →</span></div>
+          </div>
+        </article>
+
+        <article class="glass-card tilt-card cert-card" data-pdf="Media/Certificates/completed%203%20total%20hours%20of%20%28UDEMY%29.pdf" data-img="Media/Certificates/previews/fundamentals-vfx.jpg" data-title="Fundamentals of VFX" data-meta="Udemy · Dec 19, 2020">
+          <div class="cert-preview"><img src="Media/Certificates/previews/fundamentals-vfx.jpg" alt="Fundamentals of VFX"></div>
+          <div class="cert-body">
+            <div class="tl-date">Dec 19, 2020</div>
+            <div class="domain-title">Fundamentals of VFX</div>
+            <div class="domain-desc">Udemy — 3 hours. Digital Learning Solutions.</div>
+            <div class="pill-row"><span class="pill">Open PDF →</span></div>
+          </div>
+        </article>
+
+        <article class="glass-card tilt-card cert-card" data-pdf="Media/Certificates/completed%2013%20total%20hours%20of%20VEX%20%28UDEMY%29.pdf" data-img="Media/Certificates/previews/houdini.jpg" data-title="VFX: Complete Houdini Bootcamp" data-meta="Udemy · Sep 17, 2020">
+          <div class="cert-preview"><img src="Media/Certificates/previews/houdini.jpg" alt="VFX: Complete Houdini Bootcamp"></div>
+          <div class="cert-body">
+            <div class="tl-date">Sep 17, 2020</div>
+            <div class="domain-title">VFX: Complete Houdini Bootcamp</div>
+            <div class="domain-desc">Udemy — 13 hours. Instructor Raffi Bedross.</div>
+            <div class="pill-row"><span class="pill">Open PDF →</span></div>
+          </div>
+        </article>
+
+        <article class="glass-card tilt-card cert-card" data-pdf="Media/Certificates/Knowledge%20Test%20in%20Sales%20%26%20Marketing.pdf" data-img="Media/Certificates/previews/sales-marketing.jpg" data-title="Knowledge Test in Sales &amp; Marketing" data-meta="Kingston Business Academy · Sep 9, 2020">
+          <div class="cert-preview"><img src="Media/Certificates/previews/sales-marketing.jpg" alt="Knowledge Test in Sales &amp; Marketing"></div>
+          <div class="cert-body">
+            <div class="tl-date">Sep 9, 2020</div>
+            <div class="domain-title">Knowledge Test in Sales &amp; Marketing</div>
+            <div class="domain-desc">Kingston Business Academy — passing score 100%.</div>
+            <div class="pill-row"><span class="pill">Open PDF →</span></div>
+          </div>
+        </article>
+
+        <article class="glass-card tilt-card cert-card" data-pdf="Media/Certificates/Basics%20of%20Strategic%20Management.pdf" data-img="Media/Certificates/previews/strategic-management.jpg" data-title="Basics of Strategic Management" data-meta="IBMI Berlin · Aug 25, 2020">
+          <div class="cert-preview"><img src="Media/Certificates/previews/strategic-management.jpg" alt="Basics of Strategic Management"></div>
+          <div class="cert-body">
+            <div class="tl-date">Aug 25, 2020</div>
+            <div class="domain-title">Basics of Strategic Management</div>
+            <div class="domain-desc">International Business Management Institute, Berlin.</div>
+            <div class="pill-row"><span class="pill">Open PDF →</span></div>
+          </div>
+        </article>
+
+        <article class="glass-card tilt-card cert-card" data-pdf="Media/Certificates/03Bachelor%27s%20Degree%2C%20Mass%20Communication%20%26%20PR.pdf" data-img="Media/Certificates/previews/bachelors.jpg" data-title="Bachelor's Degree, Mass Communication &amp; PR" data-meta="Ahlia University · Jul 9, 2020">
+          <div class="cert-preview"><img src="Media/Certificates/previews/bachelors.jpg" alt="Bachelor's Degree, Mass Communication &amp; PR"></div>
+          <div class="cert-body">
+            <div class="tl-date">Jul 9, 2020</div>
+            <div class="domain-title">Bachelor's Degree, Mass Communication &amp; PR</div>
+            <div class="domain-desc">Ahlia University, Bahrain — College of Arts and Science.</div>
+            <div class="pill-row"><span class="pill">Open PDF →</span></div>
+          </div>
+        </article>
+
+        <article class="glass-card tilt-card cert-card" data-pdf="Media/Certificates/CERTIFICATE%20Of%20intership%20%28avid%20video%20editor%29.pdf" data-img="Media/Certificates/previews/internship-avid.jpg" data-title="Certificate of Internship — Offline Avid Editor" data-meta="Arabia Video · Oct 3, 2019">
+          <div class="cert-preview"><img src="Media/Certificates/previews/internship-avid.jpg" alt="Certificate of Internship — Offline Avid Editor"></div>
+          <div class="cert-body">
+            <div class="tl-date">Oct 3, 2019</div>
+            <div class="domain-title">Certificate of Internship — Offline Avid Editor</div>
+            <div class="domain-desc">Arabia Video — Let's Cook with Afnan 3, April–May 2019.</div>
+            <div class="pill-row"><span class="pill">Open PDF →</span></div>
+          </div>
+        </article>
+
+        <article class="glass-card tilt-card cert-card" data-pdf="Media/Certificates/Certificate%20of%20Appreciation%20from%20Ahlia%20University%20for%20Active%20Participation%20in%20the%20Short%20Narrative%20Film%20Celebration.pdf" data-img="Media/Certificates/previews/film-festival.jpg" data-title="Certificate of Appreciation — Short Narrative Film Festival" data-meta="Ahlia University · Mar 13, 2019">
+          <div class="cert-preview"><img src="Media/Certificates/previews/film-festival.jpg" alt="Certificate of Appreciation — Short Narrative Film Festival"></div>
+          <div class="cert-body">
+            <div class="tl-date">Mar 13, 2019</div>
+            <div class="domain-title">Certificate of Appreciation — Short Narrative Film Festival</div>
+            <div class="domain-desc">Ahlia University — active participation in the short narrative film celebration.</div>
+            <div class="pill-row"><span class="pill">Open PDF →</span></div>
+          </div>
+        </article>
+
+        <article class="glass-card tilt-card cert-card" data-pdf="Media/Certificates/ertificate%20of%20Participation%20from%20the%20Ministry%20of%20Information%20Affairs%20%E2%80%93%20Artistic%20Production%20Creativity%20Competition.pdf" data-img="Media/Certificates/previews/ministry.jpg" data-title="Certificate of Participation — Artistic Production Creativity Competition" data-meta="Ministry of Information Affairs, Bahrain">
+          <div class="cert-preview"><img src="Media/Certificates/previews/ministry.jpg" alt="Certificate of Participation from the Ministry of Information Affairs"></div>
+          <div class="cert-body">
+            <div class="tl-date">Bahrain</div>
+            <div class="domain-title">Artistic Production Creativity Competition</div>
+            <div class="domain-desc">Ministry of Information Affairs — certificate of participation.</div>
+            <div class="pill-row"><span class="pill">Open PDF →</span></div>
+          </div>
+        </article>
+
+        <article class="glass-card tilt-card cert-card" data-pdf="Media/Certificates/Diploma%20in%20Photography.pdf" data-img="Media/Certificates/previews/photography.jpg" data-title="Diploma in Photography" data-meta="Shaw Academy · Sep 16, 2016">
+          <div class="cert-preview"><img src="Media/Certificates/previews/photography.jpg" alt="Diploma in Photography"></div>
+          <div class="cert-body">
+            <div class="tl-date">Sep 16, 2016</div>
+            <div class="domain-title">Diploma in Photography</div>
+            <div class="domain-desc">Shaw Academy — CPD Certification Service.</div>
+            <div class="pill-row"><span class="pill">Open PDF →</span></div>
+          </div>
+        </article>
+
+        <article class="glass-card tilt-card cert-card" data-pdf="Media/Certificates/Diploma%20in%20Photoshop.pdf" data-img="Media/Certificates/previews/photoshop.jpg" data-title="Diploma in Photoshop" data-meta="Shaw Academy · Sep 15, 2016">
+          <div class="cert-preview"><img src="Media/Certificates/previews/photoshop.jpg" alt="Diploma in Photoshop"></div>
+          <div class="cert-body">
+            <div class="tl-date">Sep 15, 2016</div>
+            <div class="domain-title">Diploma in Photoshop</div>
+            <div class="domain-desc">Shaw Academy — awarded with Merit.</div>
+            <div class="pill-row"><span class="pill">Open PDF →</span></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="glass-card contact-card reveal">
+        <h2 class="contact-title">Have a project in mind? Let's build something great together.</h2>
+        <div class="contact-methods">
+          <a class="method-pill" href="mailto:althawadir7@gmail.com">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+            althawadir7@gmail.com
+          </a>
+          <a class="method-pill" href="tel:+97334454434">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.65 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.27a2 2 0 0 1 2.11-.45c.86.31 1.75.53 2.65.65A2 2 0 0 1 22 16.92z"/></svg>
+            +973 3445 4434
+          </a>
+          <span class="method-pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Manama, Bahrain
+          </span>
+        </div>
+        <a class="btn btn-primary" href="mailto:althawadir7@gmail.com">Send an email →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Rashid Al Thawadi. Built with craft, from every angle.</div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+  <div class="glass-card lightbox-card">
+    <img id="lightbox-img" alt="">
+    <div class="lightbox-bar">
+      <div>
+        <div class="domain-title" id="lightbox-title"></div>
+        <div class="domain-desc" id="lightbox-meta"></div>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" id="lightbox-pdf" target="_blank" rel="noopener">Open PDF →</a>
+        <button class="btn btn-ghost" id="lightbox-close" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el=> io.observe(el));
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if(!reduceMotion){
+    document.querySelectorAll('.tilt-card').forEach(card=>{
+      card.addEventListener('mousemove', (e)=>{
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left)/r.width - 0.5;
+        const y = (e.clientY - r.top)/r.height - 0.5;
+        card.style.transform = `perspective(700px) rotateY(${x*10}deg) rotateX(${-y*10}deg) translateY(-4px)`;
+      });
+      card.addEventListener('mouseleave', ()=>{
+        card.style.transform = 'perspective(700px) rotateY(0) rotateX(0) translateY(0)';
+      });
+    });
+  }
+
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightbox-img');
+  const lbTitle = document.getElementById('lightbox-title');
+  const lbMeta = document.getElementById('lightbox-meta');
+  const lbPdf = document.getElementById('lightbox-pdf');
+  const lbClose = document.getElementById('lightbox-close');
+
+  function openLightbox(card){
+    lbImg.src = card.dataset.img;
+    lbImg.alt = card.dataset.title;
+    lbTitle.textContent = card.dataset.title;
+    lbMeta.textContent = card.dataset.meta;
+    lbPdf.href = card.dataset.pdf;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox(){
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.cert-card').forEach(card=>{
+    card.addEventListener('click', ()=> openLightbox(card));
+  });
+  lbClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLightbox(); });
+</script>
+
+</body>
+</html>
