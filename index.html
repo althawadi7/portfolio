@@ -251,6 +251,122 @@
   .domain-title{ font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size: 18px; margin-bottom: 10px; }
   .domain-desc{ color: var(--muted); font-size: 14.5px; line-height:1.55; }
 
+  /* ---------- PORTFOLIO / WORKS ---------- */
+  .portfolio-filters{
+    display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; justify-content: flex-start;
+  }
+  .filter-btn{
+    font-size: 13px; font-weight: 600; color: var(--muted);
+    background: var(--glass); border: 1px solid var(--border);
+    padding: 9px 18px; border-radius: 100px;
+    cursor: pointer; transition: all .25s ease;
+  }
+  .filter-btn:hover{ color: var(--ink); border-color: var(--border-strong); background: var(--glass-strong); }
+  .filter-btn.active{
+    color: #0d0c11; background: var(--ink); border-color: var(--ink);
+    box-shadow: 0 4px 20px -4px rgba(255,255,255,0.35);
+  }
+
+  .portfolio-grid{
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+  }
+  @media (max-width: 860px){
+    .portfolio-grid{ grid-template-columns: 1fr; }
+  }
+
+  .project-card{
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: 32px 30px; border-radius: var(--radius);
+    background: var(--glass); border: 1px solid var(--border);
+    position: relative; overflow: hidden;
+    transition: transform .3s ease, border-color .3s ease, background .3s ease, box-shadow .3s ease;
+  }
+  .project-card:hover{
+    transform: translateY(-4px);
+    border-color: var(--border-strong);
+    background: var(--glass-strong);
+    box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
+  }
+  .project-card.is-hidden{
+    display: none !important;
+  }
+
+  .project-top{
+    display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; flex-wrap: wrap;
+  }
+  .project-badge{
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 6px;
+  }
+  .badge-ecommerce{ background: rgba(255,122,69,0.15); color: var(--warm); border: 1px solid rgba(255,122,69,0.25); }
+  .badge-app{ background: rgba(110,140,255,0.15); color: var(--cool); border: 1px solid rgba(110,140,255,0.25); }
+  .badge-saas{ background: rgba(255,211,110,0.15); color: var(--amber); border: 1px solid rgba(255,211,110,0.25); }
+  .badge-web{ background: rgba(255,255,255,0.08); color: var(--ink); border: 1px solid rgba(255,255,255,0.15); }
+
+  .project-status{
+    display: inline-flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--muted);
+  }
+  .status-dot{
+    width: 6px; height: 6px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 8px #22c55e;
+  }
+
+  .project-title{
+    font-family: 'Bricolage Grotesque', sans-serif; font-size: 22px; font-weight: 700;
+    letter-spacing: -0.01em; margin-bottom: 10px; color: var(--ink);
+  }
+  .project-desc{
+    font-size: 14.5px; color: var(--muted); line-height: 1.6; margin-bottom: 22px;
+  }
+
+  .project-tech{
+    display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;
+  }
+  .tech-tag{
+    font-size: 12px; color: var(--muted); background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border); padding: 4px 10px; border-radius: 6px;
+  }
+
+  .project-actions{
+    display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding-top: 18px;
+    border-top: 1px solid var(--border); margin-top: auto;
+  }
+  .project-btn{
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 12.5px; font-weight: 600; padding: 8px 14px; border-radius: 8px;
+    border: 1px solid var(--border); background: var(--glass); color: var(--ink);
+    transition: all .2s ease;
+  }
+  .project-btn:hover{
+    border-color: var(--ink); background: rgba(255,255,255,0.1); transform: translateY(-2px);
+  }
+  .project-btn.primary-link{
+    background: var(--ink); color: var(--bg); border-color: var(--ink);
+  }
+  .project-btn.primary-link:hover{
+    background: #ffffff; box-shadow: 0 6px 20px -4px rgba(255,255,255,0.3);
+  }
+
+  /* Portfolio banner callout */
+  .portfolio-banner{
+    margin-top: 36px; padding: 32px 36px; border-radius: var(--radius);
+    background: linear-gradient(135deg, rgba(255,122,69,0.08), rgba(110,140,255,0.08));
+    border: 1px solid var(--border-strong);
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  }
+  @media (max-width: 800px){
+    .portfolio-banner{ flex-direction: column; align-items: flex-start; text-align: left; padding: 24px 20px; }
+  }
+  .portfolio-banner-title{
+    font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 6px;
+  }
+  .portfolio-banner-desc{
+    font-size: 14px; color: var(--muted); max-width: 620px;
+  }
+  .portfolio-banner-actions{
+    display: flex; gap: 10px; flex-wrap: wrap; flex-shrink: 0;
+  }
+
   /* ---------- EDUCATION ---------- */
   .edu-panel{ padding: 14px 4px; }
   .edu-list{ display:grid; grid-template-columns: 1fr 1fr; gap: 0 48px; }
@@ -294,8 +410,8 @@
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
-      <a href="#work">Work</a>
-      <a href="#apps">Apps</a>
+      <a href="#work">Portfolio</a>
+      <a href="#domains">Domains</a>
       <a href="#education">Education</a>
       <a href="certificates.html">Certificates</a>
     </nav>
@@ -316,7 +432,7 @@
         <p class="hero-sub">Full-stack developer in Bahrain, crafting web platforms, mobile apps, and backend systems for SaaS, fintech, ecommerce, and government products — shaped by years behind a camera and inside a 3D render.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#contact">Start a project →</a>
-          <a class="btn btn-ghost" href="#apps">See the apps</a>
+          <a class="btn btn-ghost" href="#work">View portfolio</a>
         </div>
       </div>
 
@@ -510,13 +626,277 @@
     </div>
   </section>
 
-  <!-- DOMAINS -->
+  <!-- PORTFOLIO & WORK -->
   <section id="work">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div class="sec-eyebrow">WORK</div>
+        <div class="sec-eyebrow">PORTFOLIO &amp; SELECTED WORKS</div>
+        <h2 class="sec-title">Featured platforms &amp; shipped apps</h2>
+        <p class="sec-desc">A curated showcase of flagship web platforms, cross-platform mobile apps, SaaS ecosystems, and multi-vendor marketplaces — engineered for reliability, security, and scale.</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="portfolio-filters reveal">
+        <button class="filter-btn active" type="button" data-filter="all">All Projects (8)</button>
+        <button class="filter-btn" type="button" data-filter="ecommerce">Marketplaces &amp; E-Commerce (3)</button>
+        <button class="filter-btn" type="button" data-filter="apps">Mobile Apps (5)</button>
+        <button class="filter-btn" type="button" data-filter="saas">SaaS &amp; Platforms (3)</button>
+        <button class="filter-btn" type="button" data-filter="web">Web Portals (2)</button>
+      </div>
+
+      <!-- Portfolio Grid -->
+      <div class="portfolio-grid reveal">
+        <!-- 1. Bahar -->
+        <article class="project-card" data-category="ecommerce apps">
+          <div>
+            <div class="project-top">
+              <span class="project-badge badge-ecommerce">E-Commerce Marketplace</span>
+              <span class="project-status"><span class="status-dot"></span>Live on Web &amp; Mobile</span>
+            </div>
+            <h3 class="project-title">Bahar — بحر</h3>
+            <p class="project-desc">Bahrain's premier multi-category online shopping platform for electronics, fashion, and lifestyle. Engineered with cross-platform native iOS &amp; Android apps, real-time order tracking, localized payment gateways, and high-performance product indexing.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Flutter (iOS &amp; Android)</span>
+              <span class="tech-tag">REST APIs</span>
+              <span class="tech-tag">BenefitPay &amp; Cards</span>
+              <span class="tech-tag">Node.js / Cloud</span>
+              <span class="tech-tag">Delivery Logistics</span>
+            </div>
+          </div>
+          <div class="project-actions">
+            <a class="project-btn primary-link" href="https://teambahar.com/" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Visit Website
+            </a>
+            <a class="project-btn" href="https://apps.apple.com/bh/app/bahar-%D8%A8%D8%AD%D8%B1/id6760932375" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.88c.63-.77 1.06-1.84.95-2.88-.93.04-2.02.62-2.67 1.39-.58.67-1.09 1.77-.95 2.81 1.03.08 2.04-.55 2.67-1.32z"/></svg>
+              App Store
+            </a>
+            <a class="project-btn" href="https://play.google.com/store/apps/details?id=com.teambahar.app" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 2.5c-.12.2-.18.47-.18.8v17.4c0 .33.06.6.18.8l.06.06 9.6-9.56v-.14L3.24 2.44zM13.9 13.22l2.62 2.62-7.7 4.4c-.5.28-1 .3-1.4.08zM16.52 8.16l-2.61 2.62.01.14 3.9 3.9c.5-.28 1.1-.84 1.6-1.7.7-1.2.7-2.48 0-3.68-.5-.86-1.1-1.42-1.6-1.7zM8.82 3.68l7.7 4.4-2.62 2.62-6.48-6.5c.4-.22.9-.2 1.4.08z"/></svg>
+              Google Play
+            </a>
+          </div>
+        </article>
+
+        <!-- 2. TeamHirfa -->
+        <article class="project-card" data-category="ecommerce apps">
+          <div>
+            <div class="project-top">
+              <span class="project-badge badge-ecommerce">Artisan Marketplace</span>
+              <span class="project-status"><span class="status-dot"></span>Live on Web &amp; Mobile</span>
+            </div>
+            <h3 class="project-title">TeamHirfa — حِرفة</h3>
+            <p class="project-desc">Bahrain's premier artisan ecosystem and creative marketplace. Empowers independent craftsmen to launch online stores, sell handmade goods (crochet, pottery, 3D crafts), manage custom orders, and host creative workshops with Bahrain-wide delivery.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Multi-Vendor Marketplace</span>
+              <span class="tech-tag">Flutter iOS &amp; Android</span>
+              <span class="tech-tag">Workshop Booking Engine</span>
+              <span class="tech-tag">Online Payments</span>
+              <span class="tech-tag">Custom Order Flow</span>
+            </div>
+          </div>
+          <div class="project-actions">
+            <a class="project-btn primary-link" href="https://teamhirfa.com/" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Visit Website
+            </a>
+            <a class="project-btn" href="https://apps.apple.com/bh/app/hirfa-%D8%AD%D8%B1%D9%81%D8%A9/id6757992937" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.88c.63-.77 1.06-1.84.95-2.88-.93.04-2.02.62-2.67 1.39-.58.67-1.09 1.77-.95 2.81 1.03.08 2.04-.55 2.67-1.32z"/></svg>
+              App Store
+            </a>
+            <a class="project-btn" href="https://play.google.com/store/apps/developer?id=Rashid+AL+Thawadi" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 2.5c-.12.2-.18.47-.18.8v17.4c0 .33.06.6.18.8l.06.06 9.6-9.56v-.14L3.24 2.44zM13.9 13.22l2.62 2.62-7.7 4.4c-.5.28-1 .3-1.4.08zM16.52 8.16l-2.61 2.62.01.14 3.9 3.9c.5-.28 1.1-.84 1.6-1.7.7-1.2.7-2.48 0-3.68-.5-.86-1.1-1.42-1.6-1.7zM8.82 3.68l7.7 4.4-2.62 2.62-6.48-6.5c.4-.22.9-.2 1.4.08z"/></svg>
+              Google Play
+            </a>
+          </div>
+        </article>
+
+        <!-- 3. Raha -->
+        <article class="project-card" data-category="apps saas">
+          <div>
+            <div class="project-top">
+              <span class="project-badge badge-app">On-Demand Services</span>
+              <span class="project-status"><span class="status-dot"></span>Live on Web &amp; Mobile</span>
+            </div>
+            <h3 class="project-title">RAHA — راحة</h3>
+            <p class="project-desc">Licensed hourly domestic cleaning and maid services platform across Bahrain. Features transparent office comparisons, real-time hourly scheduling, automated client booking workflows, and deep WhatsApp business API communication.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Flutter (iOS &amp; Android)</span>
+              <span class="tech-tag">WhatsApp API</span>
+              <span class="tech-tag">Real-Time Scheduling</span>
+              <span class="tech-tag">Service Provider Directory</span>
+              <span class="tech-tag">Bilingual UI</span>
+            </div>
+          </div>
+          <div class="project-actions">
+            <a class="project-btn primary-link" href="https://rahapp.com/" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Visit Website
+            </a>
+            <a class="project-btn" href="https://apps.apple.com/bh/app/raha-%D8%B1%D8%A7%D8%AD%D8%A9-home-services/id1603089745" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.88c.63-.77 1.06-1.84.95-2.88-.93.04-2.02.62-2.67 1.39-.58.67-1.09 1.77-.95 2.81 1.03.08 2.04-.55 2.67-1.32z"/></svg>
+              App Store
+            </a>
+            <a class="project-btn" href="https://play.google.com/store/apps/developer?id=Rashid+AL+Thawadi" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 2.5c-.12.2-.18.47-.18.8v17.4c0 .33.06.6.18.8l.06.06 9.6-9.56v-.14L3.24 2.44zM13.9 13.22l2.62 2.62-7.7 4.4c-.5.28-1 .3-1.4.08zM16.52 8.16l-2.61 2.62.01.14 3.9 3.9c.5-.28 1.1-.84 1.6-1.7.7-1.2.7-2.48 0-3.68-.5-.86-1.1-1.42-1.6-1.7zM8.82 3.68l7.7 4.4-2.62 2.62-6.48-6.5c.4-.22.9-.2 1.4.08z"/></svg>
+              Google Play
+            </a>
+          </div>
+        </article>
+
+        <!-- 4. Rentyon -->
+        <article class="project-card" data-category="saas apps">
+          <div>
+            <div class="project-top">
+              <span class="project-badge badge-saas">PropTech &amp; SaaS</span>
+              <span class="project-status"><span class="status-dot"></span>Live in Production</span>
+            </div>
+            <h3 class="project-title">Rentyon — رينتيون</h3>
+            <p class="project-desc">Full-cycle rental and property management software for landlords, property owners, and tenants. Automates rent collections, digital lease contracts, maintenance tracking, dispute records, and financial accounting reports.</p>
+            <div class="project-tech">
+              <span class="tech-tag">PropTech SaaS</span>
+              <span class="tech-tag">Flutter Mobile Apps</span>
+              <span class="tech-tag">Contract Automation</span>
+              <span class="tech-tag">Rent Collection</span>
+              <span class="tech-tag">Accounting Reports</span>
+            </div>
+          </div>
+          <div class="project-actions">
+            <a class="project-btn primary-link" href="http://rentyon.com/" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Visit Website
+            </a>
+            <a class="project-btn" href="https://apps.apple.com/bh/app/rentyon-properties-manager/id1603089745" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.88c.63-.77 1.06-1.84.95-2.88-.93.04-2.02.62-2.67 1.39-.58.67-1.09 1.77-.95 2.81 1.03.08 2.04-.55 2.67-1.32z"/></svg>
+              App Store
+            </a>
+            <a class="project-btn" href="https://play.google.com/store/apps/developer?id=Rashid+AL+Thawadi" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 2.5c-.12.2-.18.47-.18.8v17.4c0 .33.06.6.18.8l.06.06 9.6-9.56v-.14L3.24 2.44zM13.9 13.22l2.62 2.62-7.7 4.4c-.5.28-1 .3-1.4.08zM16.52 8.16l-2.61 2.62.01.14 3.9 3.9c.5-.28 1.1-.84 1.6-1.7.7-1.2.7-2.48 0-3.68-.5-.86-1.1-1.42-1.6-1.7zM8.82 3.68l7.7 4.4-2.62 2.62-6.48-6.5c.4-.22.9-.2 1.4.08z"/></svg>
+              Google Play
+            </a>
+          </div>
+        </article>
+
+        <!-- 5. Al Jiwan Jewellery -->
+        <article class="project-card" data-category="ecommerce web">
+          <div>
+            <div class="project-top">
+              <span class="project-badge badge-ecommerce">Luxury E-Commerce</span>
+              <span class="project-status"><span class="status-dot"></span>Live Store</span>
+            </div>
+            <h3 class="project-title">Al Jiwan Jewellery — مجوهرات الجيوان</h3>
+            <p class="project-desc">High-end luxury digital storefront specializing in certified Bahrain natural pearls and bespoke diamond collections. Implemented with full Arabic/English bilingual internationalization, GA4 ecommerce data layer, and secure card payment workflows.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Bilingual i18n (AR/EN)</span>
+              <span class="tech-tag">GA4 Enhanced Ecommerce</span>
+              <span class="tech-tag">Secure Checkout</span>
+              <span class="tech-tag">Luxury Visual Design</span>
+              <span class="tech-tag">Custom Cart &amp; Search</span>
+            </div>
+          </div>
+          <div class="project-actions">
+            <a class="project-btn primary-link" href="https://aljiwanjewellery.com/" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Visit Website
+            </a>
+          </div>
+        </article>
+
+        <!-- 6. Sector 4 -->
+        <article class="project-card" data-category="apps">
+          <div>
+            <div class="project-top">
+              <span class="project-badge badge-app">iOS Mobile App</span>
+              <span class="project-status"><span class="status-dot"></span>Live on App Store</span>
+            </div>
+            <h3 class="project-title">Sector 4</h3>
+            <p class="project-desc">Digital entertainment and media interactive mobile application published on the Apple App Store. Built with fluid 60fps micro-animations, fast asset streaming, and bespoke dark-mode interface architecture.</p>
+            <div class="project-tech">
+              <span class="tech-tag">iOS Native Engineering</span>
+              <span class="tech-tag">Media Streaming</span>
+              <span class="tech-tag">Interactive UI/UX</span>
+              <span class="tech-tag">App Store Live</span>
+            </div>
+          </div>
+          <div class="project-actions">
+            <a class="project-btn primary-link" href="https://apps.apple.com/bh/app/sector-4/id1603089745" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.88c.63-.77 1.06-1.84.95-2.88-.93.04-2.02.62-2.67 1.39-.58.67-1.09 1.77-.95 2.81 1.03.08 2.04-.55 2.67-1.32z"/></svg>
+              View on App Store
+            </a>
+          </div>
+        </article>
+
+        <!-- 7. Al Thawadi Majlis -->
+        <article class="project-card" data-category="web saas">
+          <div>
+            <div class="project-top">
+              <span class="project-badge badge-web">Heritage &amp; Portal</span>
+              <span class="project-status"><span class="status-dot"></span>Live Portal</span>
+            </div>
+            <h3 class="project-title">Al Thawadi Majlis — مجلس عائلة الذوادي</h3>
+            <p class="project-desc">Official digital heritage archive and community portal for the Al Thawadi family in Bahrain. Features comprehensive genealogical documentation, historical photographic records, majlis council bulletins, theme toggle, and responsive Arabic typography.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Digital Archives</span>
+              <span class="tech-tag">Arabic Typography</span>
+              <span class="tech-tag">Theme Toggle (Dark/Light)</span>
+              <span class="tech-tag">Responsive Architecture</span>
+            </div>
+          </div>
+          <div class="project-actions">
+            <a class="project-btn primary-link" href="https://althawadi.org/" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Visit Website
+            </a>
+          </div>
+        </article>
+
+        <!-- 8. Masar Elite -->
+        <article class="project-card" data-category="apps ecommerce">
+          <div>
+            <div class="project-top">
+              <span class="project-badge badge-app">Sports &amp; Athletics</span>
+              <span class="project-status"><span class="status-dot"></span>Live on App Store</span>
+            </div>
+            <h3 class="project-title">Masar Elite</h3>
+            <p class="project-desc">Dedicated mobile sports and athletic lifestyle application available on the iOS App Store, featuring catalog browsing, curated sports gear, fast checkout, and intuitive mobile shopping experience.</p>
+            <div class="project-tech">
+              <span class="tech-tag">iOS Application</span>
+              <span class="tech-tag">Sports E-Commerce</span>
+              <span class="tech-tag">Product Catalog</span>
+              <span class="tech-tag">Mobile UI</span>
+            </div>
+          </div>
+          <div class="project-actions">
+            <a class="project-btn primary-link" href="https://apps.apple.com/bh/developer/rashed-al-thawadi/id1603089745" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.88c.63-.77 1.06-1.84.95-2.88-.93.04-2.02.62-2.67 1.39-.58.67-1.09 1.77-.95 2.81 1.03.08 2.04-.55 2.67-1.32z"/></svg>
+              View on App Store
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- 20+ Production Projects Banner -->
+      <div class="portfolio-banner reveal">
+        <div>
+          <div class="portfolio-banner-title">20+ Production Projects Delivered</div>
+          <div class="portfolio-banner-desc">These featured highlights represent selected client and venture deployments. Over 20+ full-stack and mobile applications have been engineered across blockchain, fintech, government, and SaaS systems.</div>
+        </div>
+        <div class="portfolio-banner-actions">
+          <a class="btn btn-primary" href="https://apps.apple.com/bh/developer/rashed-al-thawadi/id1603089745" target="_blank" rel="noopener">App Store Profile →</a>
+          <a class="btn btn-ghost" href="https://play.google.com/store/apps/developer?id=Rashid+AL+Thawadi" target="_blank" rel="noopener">Google Play Profile →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOMAINS -->
+  <section id="domains">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-eyebrow">DOMAINS</div>
         <h2 class="sec-title">Where the work has landed</h2>
-        <p class="sec-desc">20+ projects delivered across four industries, each with its own bar for trust, uptime, and accuracy.</p>
+        <p class="sec-desc">Proven architectural delivery across six industries, each with its own bar for trust, uptime, and accuracy.</p>
       </div>
       <div class="domains reveal">
         <div class="glass-card tilt-card">
@@ -561,33 +941,6 @@
           <div class="domain-title">Mobile apps</div>
           <div class="domain-desc">Cross-platform Flutter apps for iOS and Android with Firebase integration.</div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- APPS -->
-  <section id="apps">
-    <div class="wrap">
-      <div class="sec-head">
-        <div class="sec-eyebrow">APPS</div>
-        <h2 class="sec-title">Find me on the stores</h2>
-        <p class="sec-desc">Open a developer profile to see the live apps on iOS and Android.</p>
-      </div>
-      <div class="domains">
-        <a class="glass-card tilt-card" href="https://apps.apple.com/no/developer/rashed-al-thawadi/id1603089745" target="_blank" rel="noopener">
-          <div class="domain-icon" style="background: rgba(255,255,255,0.12); color: var(--ink);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16.365 1.43c0 1.14-.455 2.2-1.247 2.986-.86.85-2.27 1.51-3.45 1.42-.13-1.1.48-2.27 1.25-3.06.84-.86 2.31-1.5 3.447-1.346zM20.48 17.37c-.37.86-.81 1.65-1.32 2.39-.71 1.02-1.29 1.73-1.73 2.13-.67.63-1.39.95-2.16.97-.55.02-.96-.14-1.24-.27-.29-.13-.66-.32-1.12-.32-.48 0-.86.19-1.16.32-.29.13-.68.29-1.2.27-.74-.02-1.48-.36-2.18-1.04-.48-.47-1.08-1.21-1.82-2.28C5.3 17.9 4.5 15.6 4.5 13.4c0-1.4.38-2.61 1.14-3.62.76-1.02 1.77-1.54 3.02-1.56.47 0 .96.16 1.47.32.4.13.83.27 1.17.27.3 0 .71-.13 1.16-.28.54-.18 1.15-.4 1.82-.34 1.38.11 2.42.66 3.1 1.62-1.23.75-2.06 2.06-2.03 3.7.03 1.56.9 2.85 2.23 3.5-.23.64-.5 1.24-.8 1.76z"/></svg>
-          </div>
-          <div class="domain-title">App Store</div>
-          <div class="domain-desc">Rashed Al Thawadi — view apps on the Apple App Store.</div>
-        </a>
-        <a class="glass-card tilt-card" href="https://play.google.com/store/apps/developer?id=Rashid+AL+Thawadi" target="_blank" rel="noopener">
-          <div class="domain-icon" style="background: rgba(110,140,255,0.15); color: var(--cool);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 2.5c-.12.2-.18.47-.18.8v17.4c0 .33.06.6.18.8l.06.06 9.6-9.56v-.14L3.24 2.44zM13.9 13.22l2.62 2.62-7.7 4.4c-.5.28-1 .3-1.4.08zM16.52 8.16l-2.61 2.62.01.14 3.9 3.9c.5-.28 1.1-.84 1.6-1.7.7-1.2.7-2.48 0-3.68-.5-.86-1.1-1.42-1.6-1.7zM8.82 3.68l7.7 4.4-2.62 2.62-6.48-6.5c.4-.22.9-.2 1.4.08z"/></svg>
-          </div>
-          <div class="domain-title">Google Play</div>
-          <div class="domain-desc">Rashid AL Thawadi — view apps on Google Play.</div>
-        </a>
       </div>
     </div>
   </section>
@@ -717,6 +1070,27 @@
       });
       card.addEventListener('mouseleave', ()=>{
         card.style.transform = 'perspective(700px) rotateY(0) rotateX(0) translateY(0)';
+      });
+    });
+  }
+
+  // Portfolio filter tabs
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+  if(filterBtns.length && projectCards.length){
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+        projectCards.forEach(card => {
+          const cats = card.getAttribute('data-category') || '';
+          if(filter === 'all' || cats.includes(filter)){
+            card.classList.remove('is-hidden');
+          } else {
+            card.classList.add('is-hidden');
+          }
+        });
       });
     });
   }
